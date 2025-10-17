@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  builds:
      runs-on: ubuntu-latest
      steps:
         - name : Checkout code
@@ -15,7 +15,7 @@ jobs:
         - name : Set up Node.js
           uses : actions/setup-node@v4
 
-        - name : Install dependency
+        - name : Install dependencies
           run  : npm install
 
         - name : Build application
@@ -23,12 +23,12 @@ jobs:
 
   test: 
     runs-on: ubuntu-latest
-    needs: build
+    needs: builds
     steps: 
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install dependency
+      - name: Install dependencies
         run : npm install
 
       - name: Run tests
