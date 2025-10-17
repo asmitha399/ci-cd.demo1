@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  builds:
+  build:
      runs-on: ubuntu-latest
      steps:
         - name : Checkout code
@@ -23,7 +23,7 @@ jobs:
 
   test: 
     runs-on: ubuntu-latest
-    needs: builds
+    needs: build
     steps: 
       - name: Checkout code
         uses: actions/checkout@v4
